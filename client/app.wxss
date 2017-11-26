@@ -1,0 +1,13 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+
+text{
+    font-family:"Microsoft Yahei";
+    font-size: 24rpx;
+    color: #666;
+}

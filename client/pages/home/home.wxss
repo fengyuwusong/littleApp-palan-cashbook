@@ -1,0 +1,171 @@
+/* pages/home/home.wxss */
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    width: 100%;
+}
+
+.top .top-left {
+    float: left;
+    margin: 20rpx;
+    margin-left: 30rpx;
+}
+
+.top-left text{
+    margin-top: 23rpx;
+    display: inline-block;
+}
+
+.top .top-right {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    margin: 10rpx;
+    margin-right: 30rpx;
+}
+
+.top image {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 20px;
+    float: left;
+    margin: 0 20rpx;
+}
+
+.top button {
+    margin: 10rpx;
+    font-size: 23rpx;
+    width: 110rpx;
+    height: 60rpx;
+    border: 1rpx solid #666;
+    color: #333;
+}
+
+.show-pane {
+    width: 90%;
+    background-color: #424b52;
+    border-radius: 20rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.show-pane text {
+    color: #fff;
+}
+
+.show-pane .henxian {
+    width: 25%;
+    background-color: #999;
+    height: 1rpx;
+    margin: 30rpx;
+}
+
+.show-pane .cost-text {
+    margin-top: 40rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.show-pane .cost-text text {
+    font-size: 35rpx;
+}
+
+.show-pane .cost {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.cost text {
+    font-size: 60rpx;
+}
+
+.show-pane .cost .mark {
+    font-size: 30rpx;
+    margin-top: 20rpx;
+    margin-right: 10rpx;
+}
+
+.etc {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20rpx;
+}
+
+.etc view {
+    display: flex;
+    flex-direction: column;
+    margin: 40rpx 50rpx;
+}
+
+.etc view text {
+    font-size: 35rpx;
+}
+
+.etc .etc-text {
+    margin-left: -10rpx;
+    font-size: 28rpx;
+    color: #999;
+}
+
+.etc .shuxian {
+    width: 2rpx;
+    height: 75rpx;
+    background-color: #999;
+    margin: 45rpx 0;
+}
+
+.make-cost {
+    background-color: #3cb798;
+    border-radius: 20rpx;
+    margin-top: 30rpx;
+    height: 100rpx;
+    width: 90%;
+    text-align: center;
+    line-height: 100rpx;
+}
+
+.make-cost text {
+    font-size: 40rpx;
+    color: #fff;
+}
+
+.recent-cost {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.recent-cost .recent-top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20rpx;
+}
+
+.recent-top text {
+    font-size: 30rpx;
+    color: #333;
+    letter-spacing: 5rpx;
+}
+
+.recent-top .more {
+    font-size: 25rpx;
+    font-weight: 0;
+    color: #999;
+    margin-top: 6rpx;
+}
+
+.recent-cost .henxian {
+    width: 100%;
+    height: 4rpx;
+    background-color: #999;
+    margin-top: 10rpx;
+}
