@@ -1,10 +1,11 @@
+<import src="recent-list/recent-list-template.wxml" />
 <view class='container'>
     <view class='top'>
-        <view  wx:if="{{!logged}}" class='top-left'>
+        <view wx:if="{{!logged}}" class='top-left'>
             <image src='/images/tab/money.png'></image>
             <text catchtap='login'>登录, 晚上好</text>
         </view>
-        <view  wx:else class='top-left'>
+        <view wx:else class='top-left'>
             <image src='{{userInfo.avatarUrl}}'></image>
             <text>{{userInfo.nickName}}, 晚上好</text>
         </view>
@@ -29,19 +30,20 @@
                 <text>0.00</text>
             </view>
             <view class='shuxian'></view>
-             <view>
+            <view>
                 <text class='etc-text'>本月收入</text>
                 <text>0.00</text>
             </view>
             <view class='shuxian'></view>
-             <view>
+            <view>
                 <text class='etc-text'>本月收入</text>
                 <text>0.00</text>
             </view>
         </view>
     </view>
     <view class='make-cost'>
-        <text>我要记账</text>
+        <text class='make-cost-text' catchtap='addCost'>我要记账</text>
+        <text class='make-get-text'>长按记一笔收入</text>
     </view>
     <view class='recent-cost'>
         <view class='recent-top'>
@@ -49,8 +51,9 @@
             <text class='more'>more>></text>
         </view>
         <view class='henxian'></view>
-        <view class='recent-main'>
-            <view></view>
-        </view>
+        <template is="recentListTemplate" />
+        <template is="recentListTemplate" />
+        <template is="recentListTemplate" />
+        <template is="recentListTemplate" />
     </view>
 </view>

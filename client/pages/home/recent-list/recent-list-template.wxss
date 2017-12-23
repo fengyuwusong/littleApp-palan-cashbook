@@ -1,0 +1,69 @@
+.recent-list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.one-cost {
+    display: flex;
+    flex-direction: column;
+}
+
+.one-cost-top .baoxiao-text {
+    font-size: 30rpx;
+    border-radius: 10rpx;
+    margin-left: 10rpx;
+    margin-top: 10rpx;
+    background-color: #cad1d7;
+    color: #fff;
+    display: inline-block;
+    width: 105rpx;
+    height: 50rpx;
+    text-align: center;
+    line-height: 50rpx;
+}
+
+.one-cost-top .new-text {
+    color: #5dc17b;
+    font-size: 20rpx;
+    font-weight: 600;
+    position: relative;
+    top: -10rpx;
+    left: 10rpx;
+}
+
+.one-cost-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: 30rpx;
+    margin-top: 20rpx;
+}
+
+.one-cost-top text {
+    font-size: 35rpx;
+}
+
+.one-cost-top .money {
+    margin-top: 20rpx;
+}
+
+.one-cost-top .money text {
+    color: #e77282;
+}
+
+.one-cost-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10rpx;
+}
+
+.one-cost-bottom text {
+    color: #999;
+}
+
+.recent-list-henxian {
+    width: 100%;
+    height: 2rpx;
+    background-color: #999;
+    margin-top: 20rpx;
+}

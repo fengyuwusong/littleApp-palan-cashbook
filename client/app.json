@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/home/home",
+        "pages/addCost/addCost",
         "pages/index/index",
         "pages/addCgi/addCgi"
     ],
