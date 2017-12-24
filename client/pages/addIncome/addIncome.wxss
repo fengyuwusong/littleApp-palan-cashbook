@@ -1,0 +1,93 @@
+/* pages/addCost/addCost.wxss */
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.background-top {
+    background: #ff6e7d;
+    height: 310rpx;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.main {
+    width: 90%;
+    height: 600rpx;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    display: flex;
+    text-align: center;
+    border-radius: 16rpx;
+    box-shadow: 0rpx 0rpx 16rpx #ff6e7d;
+    margin-top: 50rpx;
+}
+
+.money {
+    display: flex;
+    width: 80%;
+    height: 80rpx;
+    border-bottom: 2rpx #c9cdd5 solid;
+    font-size: 80rpx;
+    margin-top: 40rpx;
+    text-align: center;
+}
+
+.time-view{
+    margin: 20rpx;
+    width:50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #666666;
+}
+
+.type-view{
+    width:60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #666666;
+}
+.type-view picker{
+    border:2px #c9cdd5 solid;
+    width: 160rpx;
+    height:60rpx;
+    border-radius: 16rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+}
+
+.costly-view{
+    margin: 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    width:40%;
+    height:40rpx;
+    line-height: 40rpx;
+}
+
+.costly-view text{
+    font-size: 30rpx;
+}
+.costly-view .wx-switch-input{width:42px;height:22px;}
+.costly-view .wx-switch-input::before{width:41px;height: 20px;}
+.costly-view .wx-switch-input::after{width: 20px;height: 20px;}
+
+.mark{
+    width: 80%;
+    border-bottom: 2rpx #c9cdd5 solid;
+    margin: 20rpx;
+}
+
+.main button{
+    width: 80%;
+    background-color: #ff6e7d;
+    color:#fff;
+    letter-spacing: 10rpx;
+}

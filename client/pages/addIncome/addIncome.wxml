@@ -23,9 +23,6 @@
             <picker mode="selector">
                 种类1
             </picker>
-            <picker mode="selector">
-                种类2
-            </picker>
         </view>
 
         <!--必要  -->

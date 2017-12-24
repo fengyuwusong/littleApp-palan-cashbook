@@ -1,0 +1,41 @@
+/* pages/setting/setting.wxss */
+
+page{
+    height:100%;
+    background-color: #ebebeb;
+}
+
+.menu{
+    margin-top: 30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+.menu view{
+    background-color: #fff;
+    border-bottom: 1rpx #6666 solid;
+    height:40rpx;
+    display: flex;
+    flex-direction: row;
+    padding:30rpx;
+    line-height: 40rpx;
+    margin-top: 20rpx;
+    justify-content: space-between;
+}
+
+.menu view text{
+    color: #000;
+    font-size: 26rpx;
+    margin-left: 20rpx;
+}
+
+.menu .add{
+    display: flex;
+    justify-content: center;
+}
+
+.menu .add text{
+    font-size: 50rpx;
+    color: #333;
+}

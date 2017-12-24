@@ -1,0 +1,20 @@
+<!--pages/setting/setting.wxml-->
+<view class="container">
+    <view class="menu">
+        <view>
+            <text>生活费</text>
+            <icon type="clear" size="20" color="{{item}}"/>
+        </view>
+        <view>
+            <text>工资</text>
+            <icon type="clear" size="20" color="{{item}}"/>
+        </view>
+        <view>
+            <text>奖学金</text>
+            <icon type="clear" size="20" color="{{item}}"/>
+        </view>
+        <view class="add">
+            <text>+</text>
+        </view>
+    </view>
+</view>

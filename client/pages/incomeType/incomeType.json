@@ -1,7 +1,7 @@
 {
   "backgroundColor": "#F6F6F6",
   "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#3bafda",
-  "navigationBarTitleText": "记一笔支出",
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "收入类型",
   "navigationBarTextStyle": "#fff"
 }

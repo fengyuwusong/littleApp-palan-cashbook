@@ -21,6 +21,13 @@ Page({
         })
     },
 
+    //跳转至设置页面
+    setting:function (event) {
+        wx.navigateTo({
+            url: "/pages/setting/setting"
+        })
+    },
+
     // 用户登录示例
     login: function () {
         if (this.data.logged) return
