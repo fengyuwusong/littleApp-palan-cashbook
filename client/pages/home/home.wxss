@@ -39,11 +39,13 @@
 
 .top button {
     margin: 10rpx;
-    font-size: 23rpx;
+    margin-top: 18rpx;
+    font-size: 21rpx;
     width: 110rpx;
     height: 60rpx;
     border: 1rpx solid #666;
     color: #333;
+    line-height: 55rpx;
 }
 
 .show-pane {

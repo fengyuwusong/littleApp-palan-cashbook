@@ -1,44 +1,22 @@
-// pages/setting/setting.js
-var app = getApp();
+// pages/costType/costType.js
 Page({
 
     /**
      * 页面的初始数据
      */
-    data: {
-        userInfo:{},
-    },
+    data: {},
 
-    //跳转至收入类型页面
-    incomeType:function (event) {
+    addCostType: function (event) {
         wx.navigateTo({
-            url: "/pages/incomeType/incomeType"
+            url: "/pages/costType/costTypeAdd/costTypeAdd"
         })
     },
-
-    //跳转至支出类型页面
-    costType:function (event) {
-        wx.navigateTo({
-            url: "/pages/costType/costType"
-        })
-    },
-
-    feedback:function (event) {
-        wx.navigateTo({
-            url: "/pages/feedback/feedback"
-        })
-    },
-
-
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.setData({
-            userInfo: app.globalData.userInfo,
-        });
-        console.log(this.data);
+
     },
 
     /**

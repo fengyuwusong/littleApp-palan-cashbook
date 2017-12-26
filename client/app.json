@@ -1,36 +1,40 @@
 {
-  "pages": [
-    "pages/home/home",
-    "pages/incomeType/incomeType",
-    "pages/setting/setting",
-    "pages/addIncome/addIncome",
-    "pages/addCost/addCost",
-    "pages/index/index",
-    "pages/addCgi/addCgi"
-  ],
-  "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "记账本",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "color": "#000000",
-    "selectedColor": "#2c2c2c",
-    "list": [
-      {
-        "pagePath": "pages/home/home",
-        "text": "记账本",
-        "iconPath": "images/tab/money.png",
-        "selectedIconPath": "images/tab/money-deep.png"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "计划",
-        "iconPath": "images/tab/plan.png",
-        "selectedIconPath": "images/tab/plan-deep.png"
-      }
-    ]
-  }
+    "pages": [
+        "pages/home/home",
+        "pages/feedback/feedback",
+        "pages/incomeType/incomeTypeAdd/incomeTypeAdd",
+        "pages/costType/costTypeAdd/costTypeAdd",
+        "pages/costType/costType",
+        "pages/incomeType/incomeType",
+        "pages/setting/setting",
+        "pages/addIncome/addIncome",
+        "pages/addCost/addCost",
+        "pages/index/index",
+        "pages/addCgi/addCgi"
+    ],
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#F6F6F6",
+        "navigationBarTitleText": "记账本",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#000000",
+        "selectedColor": "#2c2c2c",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "记账本",
+                "iconPath": "images/tab/money.png",
+                "selectedIconPath": "images/tab/money-deep.png"
+            },
+            {
+                "pagePath": "pages/index/index",
+                "text": "计划",
+                "iconPath": "images/tab/plan.png",
+                "selectedIconPath": "images/tab/plan-deep.png"
+            }
+        ]
+    }
 }

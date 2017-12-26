@@ -1,0 +1,44 @@
+<!--pages/setting/setting.wxml-->
+<view class="container">
+    <view class="menu">
+        <view class="fir-menu">
+            <text>吃饭</text>
+            <icon type="clear" size="20" color="{{item}}"/>
+        </view>
+        <view class="sec-menu">
+            <view>
+                <text>早餐</text>
+                <icon type="clear" size="20" color="{{item}}"/>
+            </view>
+            <view>
+                <text>早餐</text>
+                <icon type="clear" size="20" color="{{item}}"/>
+            </view>
+            <view>
+                <text>早餐</text>
+                <icon type="clear" size="20" color="{{item}}"/>
+            </view>
+        </view>
+        <view class="fir-menu">
+            <text>吃饭</text>
+            <icon type="clear" size="20" color="{{item}}"/>
+        </view>
+        <view class="sec-menu">
+            <view>
+                <text>早餐</text>
+                <icon type="clear" size="20" color="{{item}}"/>
+            </view>
+            <view>
+                <text>早餐</text>
+                <icon type="clear" size="20" color="{{item}}"/>
+            </view>
+            <view>
+                <text>早餐</text>
+                <icon type="clear" size="20" color="{{item}}"/>
+            </view>
+        </view>
+        <view class="add" catchtap="addCostType">
+            <text>+</text>
+        </view>
+    </view>
+</view>

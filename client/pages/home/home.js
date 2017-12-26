@@ -13,16 +13,22 @@ Page({
         // 加载时自动登录
         this.login();
     },
-    
+
     //跳转至添加支出页
-    addCost:function (event) {
+    addCost: function (event) {
         wx.navigateTo({
             url: "/pages/addCost/addCost"
         })
     },
+    //跳转至添加支出页
+    addIncome: function (event) {
+        wx.navigateTo({
+            url: "/pages/addIncome/addIncome"
+        })
+    },
 
     //跳转至设置页面
-    setting:function (event) {
+    setting: function (event) {
         wx.navigateTo({
             url: "/pages/setting/setting"
         })
@@ -43,7 +49,7 @@ Page({
                         userInfo: result,
                         logged: true
                     });
-                    app.globalData =that.data;
+                    app.globalData = that.data;
                 } else {
                     // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
                     qcloud.request({

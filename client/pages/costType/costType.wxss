@@ -1,0 +1,85 @@
+/* pages/setting/setting.wxss */
+
+page{
+    height:100%;
+    background-color: #ebebeb;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+.menu .fir-menu{
+    background-color: #fff;
+    border-bottom: 1rpx #6666 solid;
+    height:40rpx;
+    display: flex;
+    flex-direction: row;
+    padding:30rpx;
+    line-height: 40rpx;
+    margin-top: 30rpx;
+    justify-content: space-between;
+}
+
+.menu .fir-menu text{
+    color: #000;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+}
+/*.menu .sec-menu .add{*/
+    /*background-color: #fff;*/
+    /*height:30rpx;*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: center;*/
+    /*margin-top:0rpx;*/
+/*}*/
+
+/*.menu .sec-menu .add text{*/
+    /*font-size: 44rpx;*/
+    /*color: #333;*/
+    /*margin-left: 0rpx;*/
+/*}*/
+
+
+
+.menu .add{
+    background-color: #fff;
+    border-bottom: 1rpx #6666 solid;
+    height:30rpx;
+    display: flex;
+    flex-direction: row;
+    padding:30rpx;
+    line-height: 30rpx;
+    margin-top: 30rpx;
+    justify-content: center;
+}
+
+.menu .add text{
+    font-size: 50rpx;
+    color: #333;
+}
+
+.menu .sec-menu{
+    display: flex;
+    flex-direction: column;
+}
+.menu .sec-menu view{
+    background-color: #f8f8f8;
+    border-bottom: 1rpx #6666 solid;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    height:30rpx;
+    line-height: 20rpx;
+    align-items: center;
+    padding:30rpx;
+}
+
+.menu .sec-menu view text{
+    color: #000;
+    font-size: 26rpx;
+    margin-left: 100rpx;
+}

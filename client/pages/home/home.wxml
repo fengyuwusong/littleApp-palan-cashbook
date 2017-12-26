@@ -41,7 +41,7 @@
             </view>
         </view>
     </view>
-    <view class='make-cost'  catchtap='addCost'>
+    <view class='make-cost'  catchtap='addCost' catchlongpress="addIncome">
         <text class='make-cost-text'>我要记账</text>
         <text class='make-get-text'>长按记一笔收入</text>
     </view>

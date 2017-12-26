@@ -1,0 +1,5 @@
+<view class="container">
+    <text>反馈</text>
+    <textarea auto-focus fixed focus placeholder="请在这里输入你真挚的建议哦~"></textarea>
+    <button form-type="submit"> 提交 </button>
+</view>

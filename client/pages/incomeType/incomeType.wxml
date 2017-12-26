@@ -13,7 +13,7 @@
             <text>奖学金</text>
             <icon type="clear" size="20" color="{{item}}"/>
         </view>
-        <view class="add">
+        <view class="add" catchtap="addIncomeType">
             <text>+</text>
         </view>
     </view>

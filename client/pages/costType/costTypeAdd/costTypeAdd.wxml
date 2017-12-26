@@ -1,0 +1,22 @@
+<view class="container">
+    <view class="type">
+        <text>一级类型：</text>
+        <view>
+            <picker wx:if="{{typeFlag}}" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class="picker">
+                    {{array[index]}}123
+                </view>
+            </picker>
+            <input wx:else class="type-input" type="text" placeholder="请填写"/>
+        </view>
+    </view>
+    <view class="type">
+        <text>二级类型：</text>
+        <view>
+            <input class="type-input" type="text" placeholder="请填写"/>
+        </view>
+    </view>
+    <!--提交  -->
+    <button class="submit" formType="submit">保存</button>
+
+</view>

@@ -1,0 +1,50 @@
+/* pages/costType/costTypeAdd/costTypeAdd.wxss */
+page{
+    height:100%;
+    background-color: #ebebeb;
+    display: flex;
+    justify-content: center;
+}
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20rpx;
+}
+
+.type{
+    margin-top: 30rpx;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1rpx #6666 solid;
+    justify-content: center;
+    height:80rpx;
+    line-height: 80rpx;
+}
+
+.type view picker .picker{
+    font-size: 34rpx;
+}
+
+text{
+    display: block;
+    font-size: 34rpx;
+    font-weight: 600;
+    position: absolute;
+    left:50rpx;
+}
+
+.type-input{
+    margin-top: 14rpx;
+    font-size: 30rpx;
+    text-align: center;
+    margin-left: 20rpx;
+}
+
+.submit{
+    margin-top: 35rpx;
+    font-size: 35rpx;
+}

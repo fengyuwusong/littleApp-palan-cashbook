@@ -10,11 +10,11 @@
             <image class="menu-image" src="/images/tab/income.png"></image>
             <text>收入类型设置</text>
         </view>
-        <view>
+        <view catchtap="costType">
             <image class="menu-image" src="/images/tab/cost.png"></image>
             <text>支出类型设置</text>
         </view>
-        <view>
+        <view catchtap="feedback">
             <image class="menu-image" src="/images/tab/feedback.png"></image>
             <text>反馈</text>
         </view>

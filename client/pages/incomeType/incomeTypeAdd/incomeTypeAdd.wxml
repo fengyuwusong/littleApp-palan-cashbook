@@ -1,0 +1,11 @@
+<view class="container">
+    <view class="type">
+        <text>收入类型：</text>
+        <view>
+            <input class="type-input" type="text" placeholder="请填写..."/>
+        </view>
+    </view>
+    <!--提交  -->
+    <button class="submit" formType="submit">保存</button>
+
+</view>
