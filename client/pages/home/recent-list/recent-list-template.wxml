@@ -2,18 +2,20 @@
     <view class='recent-list-contaner'>
         <view class='one-cost'>
             <view class='one-cost-top'>
-                <view>
-                    <text>交通-交通其他</text>
-                    <text class='baoxiao-text'>可报销</text>
-                    <text class='new-text'>NEW</text>
+                <view wx:if="{{secondType}}">
+                    <text>{{firstType.name}}-{{secondType.name}}</text>
+                    <text class='baoxiao-text'>{{necessary?"必要":"不必要"}}</text>
+                </view>
+                <view wx:else>
+                    <text>{{incomeType.name}}</text>
                 </view>
                 <view class='money'>
-                    <text>182</text>
+                    <text>{{money}}</text>
                 </view>
             </view>
             <view class='one-cost-bottom'>
-                <text>高铁回家</text>
-                <text>11/27 09:32</text>
+                <text>{{mark}}</text>
+                <text>{{createTime}}</text>
             </view>
             <view class='recent-list-henxian'></view>
         </view>

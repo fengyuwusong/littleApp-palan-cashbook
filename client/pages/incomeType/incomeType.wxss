@@ -30,12 +30,20 @@ page{
     margin-left: 20rpx;
 }
 
-.menu .add{
+.add{
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1rpx #6666 solid;
+    height:30rpx;
     display: flex;
+    flex-direction: row;
+    padding:30rpx;
+    line-height: 30rpx;
+    margin-top: 30rpx;
     justify-content: center;
 }
 
-.menu .add text{
+.add text{
     font-size: 50rpx;
     color: #333;
 }

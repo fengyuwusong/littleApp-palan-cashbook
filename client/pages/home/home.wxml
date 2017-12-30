@@ -1,4 +1,4 @@
-<import src="recent-list/recent-list-template.wxml" />
+<import src="recent-list/recent-list-template.wxml"/>
 <view class='container'>
     <view class='top'>
         <view wx:if="{{!logged}}" class='top-left'>
@@ -22,26 +22,26 @@
         </view>
         <view class='cost'>
             <text class='mark'>￥</text>
-            <text>0.00</text>
+            <text>{{costSum}}</text>
         </view>
         <view class='etc'>
             <view>
                 <text class='etc-text'>本月收入</text>
-                <text>0.00</text>
+                <text>{{incomeSum}}</text>
             </view>
             <view class='shuxian'></view>
             <view>
-                <text class='etc-text'>本月收入</text>
-                <text>0.00</text>
+                <text class='etc-text'>本月支出</text>
+                <text>{{costSum}}</text>
             </view>
             <view class='shuxian'></view>
             <view>
-                <text class='etc-text'>本月收入</text>
+                <text class='etc-text'>本月剩余</text>
                 <text>0.00</text>
             </view>
         </view>
     </view>
-    <view class='make-cost'  catchtap='addCost' catchlongpress="addIncome">
+    <view class='make-cost' catchtap='addCost' catchlongpress="addIncome">
         <text class='make-cost-text'>我要记账</text>
         <text class='make-get-text'>长按记一笔收入</text>
     </view>
@@ -51,9 +51,8 @@
             <text class='more'>more>></text>
         </view>
         <view class='henxian'></view>
-        <template is="recentListTemplate" />
-        <template is="recentListTemplate" />
-        <template is="recentListTemplate" />
-        <template is="recentListTemplate" />
+        <block wx:for="{{costIncomeList}}" wx:for-item="list" wx:key="costIncomeList">
+            <template is="recentListTemplate" data="{{...list}}"/>
+        </block>
     </view>
 </view>

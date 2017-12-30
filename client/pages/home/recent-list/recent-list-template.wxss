@@ -36,7 +36,7 @@
     flex-direction: row;
     justify-content: space-between;
     line-height: 30rpx;
-    margin-top: 20rpx;
+    margin-top: 10rpx;
 }
 
 .one-cost-top text {
@@ -65,5 +65,5 @@
     width: 100%;
     height: 2rpx;
     background-color: #999;
-    margin-top: 20rpx;
+    margin-top: 5rpx;
 }

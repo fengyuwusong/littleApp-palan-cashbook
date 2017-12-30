@@ -103,12 +103,13 @@ var login = function login(options) {
             data: options.data,
             success: function (result) {
                 var data = result.data;
-
                 // 成功地响应会话信息
                 if (data && data.code === 0 && data.data.skey) {
                     var res = data.data
                     if (res.userinfo) {
                         Session.set(res.skey);
+                        //添加返回openid
+                        userInfo.openId=result.data.data.userinfo.openId;
                         options.success(userInfo);
                     } else {
                         var errorMessage = '登录失败(' + data.error + ')：' + (data.message || '未知错误');

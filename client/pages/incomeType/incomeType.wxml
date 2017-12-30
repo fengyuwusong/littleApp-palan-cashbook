@@ -1,20 +1,12 @@
 <!--pages/setting/setting.wxml-->
 <view class="container">
-    <view class="menu">
+    <view class="menu" wx:for="{{incomeType}}" wx:for-item="type" wx:key="incometype">
         <view>
-            <text>生活费</text>
-            <icon type="clear" size="20" color="{{item}}"/>
+            <text>{{type.name}}</text>
+            <icon type="clear" size="20" color="{{item}}" catchtap="delete" data-id="{{type.id}}" data-name="{{type.name}}"/>
         </view>
-        <view>
-            <text>工资</text>
-            <icon type="clear" size="20" color="{{item}}"/>
-        </view>
-        <view>
-            <text>奖学金</text>
-            <icon type="clear" size="20" color="{{item}}"/>
-        </view>
-        <view class="add" catchtap="addIncomeType">
-            <text>+</text>
-        </view>
+    </view>
+    <view class="add" catchtap="addIncomeType">
+        <text>+</text>
     </view>
 </view>

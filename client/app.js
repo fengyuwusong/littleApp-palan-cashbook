@@ -11,6 +11,9 @@ App({
         userInfo: {},
         logged: false,
         takeSession: false,
-        requestResult: ''
+        requestResult: '',
+        uid:'',
+        costType:{},
+        incomeType:{},
     },
 })

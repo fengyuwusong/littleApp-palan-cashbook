@@ -1,44 +1,18 @@
 <!--pages/setting/setting.wxml-->
 <view class="container">
-    <view class="menu">
+    <view class="menu" wx:for="{{costType}}" wx:for-item="firstType" wx:key="fType">
         <view class="fir-menu">
-            <text>吃饭</text>
-            <icon type="clear" size="20" color="{{item}}"/>
+            <text>{{firstType.firstTypeName}}</text>
+            <icon type="clear" size="20" color="{{item}}" catchtap="deleteFirstCostType" data-first-name="{{firstType.firstTypeName}}" data-first-id="{{firstType.firstTypeId}}"/>
         </view>
-        <view class="sec-menu">
+        <view class="sec-menu" wx:for="{{firstType.list}}" wx:for-item="secondType" wx:key="sType">
             <view>
-                <text>早餐</text>
-                <icon type="clear" size="20" color="{{item}}"/>
-            </view>
-            <view>
-                <text>早餐</text>
-                <icon type="clear" size="20" color="{{item}}"/>
-            </view>
-            <view>
-                <text>早餐</text>
-                <icon type="clear" size="20" color="{{item}}"/>
+                <text>{{secondType.name}}</text>
+                <icon type="clear" size="20" color="{{item}}" catchtap="deleteSecondCostType" data-second-name="{{secondType.name}}" data-second-id="{{secondType.id}}"/>
             </view>
         </view>
-        <view class="fir-menu">
-            <text>吃饭</text>
-            <icon type="clear" size="20" color="{{item}}"/>
-        </view>
-        <view class="sec-menu">
-            <view>
-                <text>早餐</text>
-                <icon type="clear" size="20" color="{{item}}"/>
-            </view>
-            <view>
-                <text>早餐</text>
-                <icon type="clear" size="20" color="{{item}}"/>
-            </view>
-            <view>
-                <text>早餐</text>
-                <icon type="clear" size="20" color="{{item}}"/>
-            </view>
-        </view>
-        <view class="add" catchtap="addCostType">
-            <text>+</text>
-        </view>
+    </view>
+    <view class="add" catchtap="addCostType">
+        <text>+</text>
     </view>
 </view>

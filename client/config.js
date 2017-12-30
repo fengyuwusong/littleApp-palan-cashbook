@@ -1,7 +1,6 @@
 /**
  * 小程序配置文件
  */
-
 // 此处主机域名修改成腾讯云解决方案分配的域名
 var host = 'https://mbew4hn0.qcloud.la';
 
@@ -22,7 +21,8 @@ var config = {
 
         // 上传图片接口
         uploadUrl: `${host}/weapp/upload`
-    }
+    },
+
 };
 
 module.exports = config;

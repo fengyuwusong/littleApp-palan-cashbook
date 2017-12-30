@@ -1,42 +1,41 @@
 <view class='container'>
     <view class='background-top'></view>
-    <view class='main'>
-        <!-- <form> -->
-        <!--金额  -->
-        <input placeholder='0.0' type="digit" class='money'></input>
-        <!-- 日期选择器 -->
-        <view class='time-view'>
-            <picker mode="date" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-                <view class="picker">
-                    2017-12-21
-                </view>
-            </picker>
-            <!--时间选择器  -->
-            <picker mode="time">
-                <view class="picker">
-                    22:21
-                </view>
-            </picker>
-        </view>
-        <!--分类  -->
-        <view class='type-view'>
-            <picker mode="selector">
-                种类1
-            </picker>
-            <picker mode="selector">
-                种类2
-            </picker>
-        </view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class='main'>
+            <!--金额  -->
+            <input placeholder='0.0' type="digit" class='money' name="money"/>
+            <!-- 日期选择器 -->
+            <view class='time-view'>
+                <picker mode="date" bindchange="bindDateChange">
+                    <view class="picker">
+                        {{date}}
+                    </view>
+                </picker>
+                <!--时间选择器  -->
+                <picker mode="time" bindchange="bindTimeChange">
+                    <view class="picker">
+                        {{time}}
+                    </view>
+                </picker>
+            </view>
+            <!--分类  -->
+            <view class='type-view'>
+                <picker mode="multiSelector" bindchange="typePickerChange" bindcolumnchange="typePickerColumnChange" value="{{index}}" range="{{costType}}" range-key="{{'name'}}">
+                    <view class="picker">
+                        <text>{{costType[0][index[0]].name}}</text> <text>{{costType[1][index[1]].name}}</text>
+                    </view>
+                </picker>
+            </view>
 
-        <!--必要  -->
-        <view class='costly-view'>
-            <text>必要:</text>
-            <switch checked></switch>
+            <!--必要  -->
+            <view class='costly-view'>
+                <text>必要:</text>
+                <switch checked name="necessary"></switch>
+            </view>
+            <!--备注  -->
+            <input class="mark" placeholder='备注（可选）' name="mark"/>
+            <!--提交  -->
+            <button formType="submit">保存支出</button>
         </view>
-        <!--备注  -->
-        <input class="mark" placeholder='备注（可选）'></input>
-        <!--提交  -->
-        <button formType="submit">保存支出</button>
-        <!-- </form> -->
-    </view>
+    </form>
 </view>

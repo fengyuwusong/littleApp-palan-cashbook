@@ -13,6 +13,10 @@ page{
     margin-top: 20rpx;
 }
 
+form{
+    width: 100%;
+}
+
 .type{
     margin-top: 35rpx;
     display: flex;

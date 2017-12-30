@@ -30,10 +30,10 @@
                 "selectedIconPath": "images/tab/money-deep.png"
             },
             {
-                "pagePath": "pages/index/index",
-                "text": "计划",
-                "iconPath": "images/tab/plan.png",
-                "selectedIconPath": "images/tab/plan-deep.png"
+                "pagePath": "pages/setting/setting",
+                "text": "设置",
+                "iconPath": "images/tab/setting.png",
+                "selectedIconPath": "images/tab/setting-deep.png"
             }
         ]
     }
