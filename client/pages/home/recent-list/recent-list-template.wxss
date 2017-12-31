@@ -9,17 +9,16 @@
 }
 
 .one-cost-top .baoxiao-text {
-    font-size: 30rpx;
+    font-size: 25rpx;
     border-radius: 10rpx;
     margin-left: 10rpx;
-    margin-top: 10rpx;
     background-color: #cad1d7;
     color: #fff;
     display: inline-block;
-    width: 105rpx;
-    height: 50rpx;
+    width: 80rpx;
+    height: 38rpx;
     text-align: center;
-    line-height: 50rpx;
+    line-height: 38rpx;
 }
 
 .one-cost-top .new-text {
@@ -36,16 +35,13 @@
     flex-direction: row;
     justify-content: space-between;
     line-height: 30rpx;
-    margin-top: 10rpx;
+    margin-top: 20rpx;
 }
 
 .one-cost-top text {
     font-size: 35rpx;
 }
 
-.one-cost-top .money {
-    margin-top: 20rpx;
-}
 
 .one-cost-top .money text {
     color: #e77282;

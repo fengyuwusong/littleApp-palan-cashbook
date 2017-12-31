@@ -12,6 +12,25 @@ var requestUrl = {
 
 
     /**
+     * home方法 通过openid判断用户是否存在 和添加 并获取支出总和 收入总和 收支列表
+     * 请求post
+     * +{start} 获取收支总和开始计算的起始时间戳
+     * 参数：
+     * {
+              "avatarUrl": "string",    头像url
+              "city": "string",         城市
+              "country": "string",      国家
+              "createTime": 0,          创建时间
+              "language": "string",     语言
+              "nickname": "string",     昵称
+              "openId": "string",       openid
+              "province": "string"      省份
+            }
+     */
+    home:`${base}/home/`,
+
+
+    /**
      * 保存一个用户
      * 请求：post
      * 参数：User
@@ -269,6 +288,14 @@ var requestUrl = {
      *  +{id}
      */
     getIncome: `${base}/income/`,
+
+    /**
+     * 反馈意见
+     * 请求：get
+     * 参数
+     * +{uid}/{content}   content：内容
+     */
+    feedback:`${base}/feedback/`,
 
 }
 

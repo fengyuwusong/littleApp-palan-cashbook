@@ -9,25 +9,19 @@ Page({
         logged: false,
         takeSession: false,
         requestResult: '',
-        costType: {},
-        incomeType: {},
         costIncomeList: {},
         costList: {},
         incomeList: {},
         costSum: 0,
         incomeSum: 0,
-        once:true
     },
     onLoad: function (options) {
         // 加载时自动登录
         this.login();
-        this.setData({
-            once:false
-        })
     },
-    onShow:function () {
-        if(this.data.once){
-            var uid=app.globalData.uid;
+    onShow: function () {
+        var uid = app.globalData.uid;
+        if (uid != "") {
             this.getRecentCostInComeList(uid);
             this.getCostSum(uid);
             this.getIncomeSum(uid);
@@ -71,11 +65,10 @@ Page({
                 that.setData({
                     incomeList: res.data
                 });
-                var costIncomeList = util.sortCostIncomeList(that.data.costList.data, res.data.data);
+                var costIncomeList = util.sortCostIncomeList(that.data.costList.data.list, res.data.data.list);
                 that.setData({
                     costIncomeList: costIncomeList
                 });
-                util.showSuccess('登录成功');
             } else {
                 util.showModel("错误", res.data.message);
                 console.log(res.data);
@@ -84,30 +77,6 @@ Page({
             util.showModel("未知错误", "请重新打开小程序或检测是否有网络~");
             console.log(res);
         }, null);
-    },
-
-    //查看所有消费类型
-    getAllCostType: function () {
-        var uid = app.globalData.uid;
-        var that = this;
-        util.request(requestUrl.getAllCostType + uid, 'get', {}, 'json', function (res) {
-            app.globalData.costType = res.data.data;
-            that.setData({
-                costType: res.data.data
-            });
-        }, null, null);
-    },
-
-    //获取所有收入类型
-    getAllIncomeType: function () {
-        var uid = app.globalData.uid;
-        var that = this;
-        util.request(requestUrl.getAllIncomeType + uid, 'get', {}, 'json', function (res) {
-            app.globalData.incomeType = res.data.data;
-            that.setData({
-                incomeType: res.data.data
-            });
-        }, null, null);
     },
 
     //跳转至添加支出页
@@ -129,34 +98,27 @@ Page({
             url: "/pages/setting/setting"
         })
     },
-    //验证该微信用户是否已经存在
-    getUserByOpenid: function (openid) {
+
+    //home
+    home: function (user) {
         var that = this;
-        util.request(requestUrl.getUserByOpenid + openid, 'GET', {}, 'json', function (res) {
-            //不存在添加
-            if (res.data.data == null) {
-                var user = that.data.userInfo;
-                user.createTime = (new Date()).valueOf() / 1000;
-                util.request(requestUrl.addUser, "POST", user, 'json', function (res) {
-                    app.globalData.uid = res.data.data;
-                }, null, null);
-            } else {
-                app.globalData.uid = res.data.data.id;
-            }
+        user.createTime = (new Date()).valueOf() / 1000;
+        util.request(requestUrl.home + util.addDayTimeStamp(1), 'post', user, 'json', function (res) {
+            //设置获取到的所有变量
+            app.globalData.uid=res.data.data.user.id;
+            var costIncomeList = util.sortCostIncomeList(res.data.data.costList, res.data.data.incomeList);
+            that.setData({
+                costSum:res.data.data.costSum,
+                incomeSum:res.data.data.incomeSum,
+                costIncomeList:costIncomeList,
+            });
+            util.showSuccess("登录成功");
         }, function (res) {
             util.showModel("未知错误", "请重新打开小程序或检测是否有网络~");
             console.log(res);
-        }, function () {
-            //完成后加载用户所有分类及最近开支
-            that.getAllCostType();
-            that.getAllIncomeType();
-            //加载时查询最近收支明细
-            that.getRecentCostInComeList(app.globalData.uid);
-            that.getCostSum(app.globalData.uid);
-            that.getIncomeSum(app.globalData.uid);
-
-        })
+        }, null)
     },
+
 
     //计算这个月的支出
     getCostSum: function (uid) {
@@ -215,7 +177,7 @@ Page({
                                 logged: true
                             });
                             app.globalData = that.data;
-                            that.getUserByOpenid(result.data.data.openId);
+                            that.home(result.data.data);
                         },
                         fail(error) {
                             util.showModel('请求失败', error)

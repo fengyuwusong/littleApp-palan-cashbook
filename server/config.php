@@ -21,11 +21,14 @@ $config = [
      * 开发环境下，MySQL 的初始密码为您的微信小程序 AppID
      */
     'mysql' => [
-        'host' => 'localhost',
+        //'host' => 'localhost',
+        'host' => '172.16.155.113',
         'port' => 3306,
         'user' => 'root',
         'db'   => 'cAuth',
-        'pass' => 'wxaab65c31ec0ea340',
+        //'pass' => 'wxaab65c31ec0ea340',
+        //生产环境密码
+        'pass' => 'fSW5Xbdy31090',
         'char' => 'utf8mb4'
     ],
 

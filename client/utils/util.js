@@ -4,9 +4,8 @@ const formatTime = date => {
     const day = date.getDate()
     const hour = date.getHours()
     const minute = date.getMinutes()
-    const second = date.getSeconds()
 
-    return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+    return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute].map(formatNumber).join(':')
 }
 
 const formatNumber = n => {
@@ -151,10 +150,34 @@ function isNullOrEmpty(obj) {
 
 //将收入支出按照时间穿插排序
 function sortCostIncomeList(costList, incomeList) {
-    costList.list.map(function (item, index, input) {
+    if(costList===null&&incomeList===null){
+        return
+    }else if(costList===null){
+        var list = incomeList;
+        list.map(function (item, index, input) {
+            if(item.money>0){
+                item.money="+"+item.money;
+            }
+            item.createTime = self::formatTime(new Date(item.createTime * 1000));
+        });
+        return list;
+    }else if(incomeList===null){
+        costList.map(function (item, index, input) {
+            input[index].money *= -1;
+        });
+        var list = costList;
+        list.map(function (item, index, input) {
+            if(item.money>0){
+                item.money="+"+item.money;
+            }
+            item.createTime = self::formatTime(new Date(item.createTime * 1000));
+        });
+        return list;
+    }
+    costList.map(function (item, index, input) {
         input[index].money *= -1;
     });
-    var list = costList.list.concat(incomeList.list);
+    var list = costList.concat(incomeList);
     list.sort(function (a, b) {
         return b.createTime - a.createTime
     });

@@ -37,7 +37,7 @@
             <view class='shuxian'></view>
             <view>
                 <text class='etc-text'>本月剩余</text>
-                <text>0.00</text>
+                <text>{{incomeSum-costSum}}</text>
             </view>
         </view>
     </view>
