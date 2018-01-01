@@ -14,6 +14,7 @@ Page({
         incomeList: {},
         costSum: 0,
         incomeSum: 0,
+        listFlag:0
     },
     onLoad: function (options) {
         // 加载时自动登录
@@ -27,8 +28,6 @@ Page({
             this.getIncomeSum(uid);
         }
     },
-
-
     //查看最近收支明细
     getRecentCostInComeList: function (uid) {
         var now = parseInt((new Date()).valueOf() / 1000);
@@ -37,6 +36,31 @@ Page({
             uid: uid
         };
         this.findCostListByCondition(condition);
+        this.findIncomeListByCondition(condition);
+    },
+
+    //判断是否全部获取完成 如果完成则执行最终排序
+    listFlag:function () {
+        this.setData({
+            listFlag:this.data.listFlag+1
+        });
+        if(this.data.listFlag===2){
+            var p1 = null;
+            var p2 = null;
+            if (this.data.costList.data !== undefined) {
+                p1 = this.data.costList.data.list;
+            }
+            if (this.data.incomeList.data !== undefined) {
+                p2 = this.data.incomeList.data.list;
+            }
+            var costIncomeList = util.sortCostIncomeList(p1, p2);
+            this.setData({
+                costIncomeList: costIncomeList
+            });
+            this.setData({
+                listFlag:0
+            });
+        }
     },
 
     //查看最近支出
@@ -47,7 +71,7 @@ Page({
                 that.setData({
                     costList: res.data
                 });
-                that.findIncomeListByCondition(condition);
+                that.listFlag();
             } else {
                 util.showModel("错误", res.data.message);
                 console.log(res.data);
@@ -65,10 +89,7 @@ Page({
                 that.setData({
                     incomeList: res.data
                 });
-                var costIncomeList = util.sortCostIncomeList(that.data.costList.data.list, res.data.data.list);
-                that.setData({
-                    costIncomeList: costIncomeList
-                });
+                that.listFlag();
             } else {
                 util.showModel("错误", res.data.message);
                 console.log(res.data);
@@ -105,12 +126,12 @@ Page({
         user.createTime = (new Date()).valueOf() / 1000;
         util.request(requestUrl.home + util.addDayTimeStamp(1), 'post', user, 'json', function (res) {
             //设置获取到的所有变量
-            app.globalData.uid=res.data.data.user.id;
+            app.globalData.uid = res.data.data.user.id;
             var costIncomeList = util.sortCostIncomeList(res.data.data.costList, res.data.data.incomeList);
             that.setData({
-                costSum:res.data.data.costSum,
-                incomeSum:res.data.data.incomeSum,
-                costIncomeList:costIncomeList,
+                costSum: res.data.data.costSum,
+                incomeSum: res.data.data.incomeSum,
+                costIncomeList: costIncomeList,
             });
             util.showSuccess("登录成功");
         }, function (res) {
@@ -165,7 +186,7 @@ Page({
                     });
                     app.globalData = that.data;
                     console.log(result);
-                    that.getUserByOpenid(result.openId);
+                    that.home(result);
                 } else {
                     // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
                     qcloud.request({
@@ -193,4 +214,41 @@ Page({
             },
         })
     },
+
+    //点击对已添加支出收入进行编辑删除
+    detail:function (event) {
+        if(event.currentTarget.dataset.type==="cost"){
+            var cost=this.data.costIncomeList[event.currentTarget.dataset.index];
+            var id=cost.id;
+            var createTime=cost.createTime;
+            var firstType=cost.firstType.name;
+            var mark=cost.mark;
+            var money=cost.money;
+            var necessary=cost.necessary;
+            var secondType=cost.secondType.name;
+            wx.navigateTo({
+                url: '../addCost/addCost?id='+id
+                +"&createTime="+createTime+"&firstType="+firstType
+                +"&mark="+mark+"&money="+money+"&necessary="+necessary
+                +"&secondType="+secondType
+            })
+        }
+        else if(event.currentTarget.dataset.type==="income"){
+            var income=this.data.costIncomeList[event.currentTarget.dataset.index];
+            var id=income.id;
+            var createTime=income.createTime;
+            var mark=income.mark;
+            var money=income.money;
+            var incomeType=income.incomeType.name;
+            wx.navigateTo({
+                url: '../addIncome/addIncome?id='+id
+                +"&createTime="+createTime+"&incomeType="+incomeType
+                +"&mark="+mark+"&money="+money
+            })
+        }
+
+    }
+
+
+
 })

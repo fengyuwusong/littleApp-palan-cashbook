@@ -11,7 +11,13 @@ Page({
         time: util.getTime(),
         date: util.getDate(),
         costType: null,
-        index: [0, 0]
+        index: [0, 0],
+        detailFlag:false,
+        money:0,
+        firstType:null,
+        secondType:null,
+        necessary:null,
+        mark:null
     },
 
     //multiSelector确定事件
@@ -58,7 +64,7 @@ Page({
             money: event.detail.value.money,
             necessary: event.detail.necessary ? 0 : 1,
             mark: event.detail.value.mark,
-            createTime: util.dateTimeToTimeStamp(this.data.date + " " + this.data.time),
+            createTime: util.dateTimeToTimeStamp(this.data.date + " " + this.data.time+":"+new Date().getSeconds()),
             type: this.data.costType[1][this.data.index[1]].id,
             uid: app.globalData.uid
         }
@@ -98,7 +104,19 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        if(options.id!==undefined){
+            var dateTime=util.spiltDateTime(options.createTime);
+            this.setData({
+                detailFlag:true,
+                date:dateTime[0],
+                time:dateTime[1],
+                firstType:options.firstType,
+                secondType:options.secondType,
+                necessary:options.necessary,
+                mark:options.mark,
+                money:options.money
+            })
+        }
     },
 
     /**

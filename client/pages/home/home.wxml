@@ -51,8 +51,8 @@
             <text class='more'>more>></text>
         </view>
         <view class='henxian'></view>
-        <block wx:for="{{costIncomeList}}" wx:for-item="list" wx:key="costIncomeList">
-            <template is="recentListTemplate" data="{{...list}}"/>
+        <block wx:for="{{costIncomeList}}" wx:for-item="list" wx:key="costIncomeList" wx:for-index="index">
+            <template is="recentListTemplate" data="{{...list,index}}"/>
         </block>
     </view>
 </view>

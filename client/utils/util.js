@@ -5,7 +5,7 @@ const formatTime = date => {
     const hour = date.getHours()
     const minute = date.getMinutes()
 
-    return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute].map(formatNumber).join(':')
+    return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':')
 }
 
 const formatNumber = n => {
@@ -200,6 +200,11 @@ function addDayTimeStamp(day) {
     return self::dateTimeToTimeStamp(today);
 }
 
+//分割  将yyyy-MM-dd hh:mm 分成date和time
+function spiltDateTime(dateTime) {
+    return dateTime.split(" ");
+}
+
 
 module.exports = {
     formatTime,
@@ -214,5 +219,6 @@ module.exports = {
     isNotEmpty,
     isNum,
     sortCostIncomeList,
-    addDayTimeStamp
+    addDayTimeStamp,
+    spiltDateTime
 }

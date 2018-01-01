@@ -19,7 +19,6 @@ form{
 
 .main {
     width: 100%;
-    height: 600rpx;
     flex-direction: column;
     align-items: center;
     background: #fff;
@@ -91,9 +90,19 @@ form{
     margin: 20rpx;
 }
 
-.main button{
+button{
     width: 80%;
     background-color: #3bafda;
     color:#fff;
     letter-spacing: 10rpx;
+    margin-bottom: 30rpx;
+}
+
+.else-button{
+    width:100%;
+}
+
+.delete-button{
+    margin-top: 20rpx;
+    background-color: #DD1144;
 }

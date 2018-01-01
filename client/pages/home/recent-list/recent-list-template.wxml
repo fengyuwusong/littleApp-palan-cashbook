@@ -1,6 +1,9 @@
 <template name="recentListTemplate">
     <view class='recent-list-contaner'>
-        <view class='one-cost'>
+        <view class='one-cost' catchtap="detail"
+              data-type="{{secondType?'cost':'income'}}"
+              data-index="{{index}}"
+        >
             <view class='one-cost-top'>
                 <view wx:if="{{secondType}}">
                     <text>{{firstType.name}}-{{secondType.name}}</text>

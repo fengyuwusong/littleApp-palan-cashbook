@@ -50,7 +50,7 @@ Page({
     //提交
     formSubmit: function (e) {
         var income = {
-            createTime: util.dateTimeToTimeStamp(this.data.date + " " + this.data.time),
+            createTime: util.dateTimeToTimeStamp(this.data.date + " " + this.data.time+":"+new Date().getSeconds()),
             mark: e.detail.value.mark,
             money: e.detail.value.money,
             uid: app.globalData.uid,
