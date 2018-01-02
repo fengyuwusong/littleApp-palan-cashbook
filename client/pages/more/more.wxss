@@ -1,0 +1,33 @@
+/* pages/list/more.wxss */
+@import "../home/recent-list/recent-list-template.wxss";
+page{
+    width:100%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    height: 100rpx;
+    align-items: center;
+}
+
+.picker{
+    font-size: 50rpx;
+    color: #555;
+}
+image{
+    margin: 0 40rpx;
+    width: 50rpx;
+    height:50rpx;
+}
+
+.list{
+    margin-top:20rpx;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+}

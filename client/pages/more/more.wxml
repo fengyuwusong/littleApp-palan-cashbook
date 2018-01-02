@@ -1,0 +1,18 @@
+<import src="../home/recent-list/recent-list-template.wxml"/>
+<view class="container">
+    <view class="top">
+        <image src="/images/left.png" catchtap="lastDay"/>
+        <picker mode="date" bindchange="bindDateChange" end="{{date}}">
+            <view class="picker">
+                {{date}}
+            </view>
+        </picker>
+        <image wx:if="{{date!==now}}" src="/images/right.png" catchtap="nextDay"/>
+        <image wx:else/>
+    </view>
+    <view class="list">
+        <block wx:for="{{costIncomeList}}" wx:for-item="list" wx:key="moreList" wx:for-index="index">
+            <template is="recentListTemplate" data="{{...list,index}}"/>
+        </block>
+    </view>
+</view>

@@ -14,11 +14,32 @@ Page({
         incomeList: {},
         costSum: 0,
         incomeSum: 0,
-        listFlag:0
+        listFlag:0,
+        headerTime:null
     },
+
     onLoad: function (options) {
         // 加载时自动登录
         this.login();
+
+        var hour=new Date().getHours();
+        if(hour>5&&hour<12){
+            this.setData({
+                headerTime:"早上好"
+            });
+        }else if(hour>12&&hour<18){
+            this.setData({
+                headerTime:"下午好"
+            });
+        }else if(hour>18&&hour<23){
+            this.setData({
+                headerTime:"晚上好"
+            });
+        }else{
+            this.setData({
+                headerTime:"夜深了"
+            });
+        }
     },
     onShow: function () {
         var uid = app.globalData.uid;
@@ -32,7 +53,7 @@ Page({
     getRecentCostInComeList: function (uid) {
         var now = parseInt((new Date()).valueOf() / 1000);
         var condition = {
-            start: (now - 24 * 60 * 60 * 3),
+            start: (now - 24 * 60 * 60 * 2),
             uid: uid
         };
         this.findCostListByCondition(condition);
@@ -44,7 +65,7 @@ Page({
         this.setData({
             listFlag:this.data.listFlag+1
         });
-        if(this.data.listFlag===2){
+        if(this.data.listFlag==2){
             var p1 = null;
             var p2 = null;
             if (this.data.costList.data !== undefined) {
@@ -55,7 +76,7 @@ Page({
             }
             var costIncomeList = util.sortCostIncomeList(p1, p2);
             this.setData({
-                costIncomeList: costIncomeList
+                costIncomeList: costIncomeList==undefined?null:costIncomeList
             });
             this.setData({
                 listFlag:0
@@ -117,6 +138,13 @@ Page({
     setting: function (event) {
         wx.navigateTo({
             url: "/pages/setting/setting"
+        })
+    },
+
+    //跳转更多
+    more:function () {
+        wx.navigateTo({
+            url: "/pages/more/more"
         })
     },
 

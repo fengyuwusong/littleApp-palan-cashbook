@@ -79,6 +79,7 @@ function getDate() {
     return [year, month, day].map(formatNumber).join('-')
 }
 
+
 //获取当前时间 hh-mm
 function getTime() {
     var now = new Date();
@@ -155,6 +156,7 @@ function sortCostIncomeList(costList, incomeList) {
     }else if(costList===null){
         var list = incomeList;
         list.map(function (item, index, input) {
+            item.type="income";
             if(item.money>0){
                 item.money="+"+item.money;
             }
@@ -163,6 +165,7 @@ function sortCostIncomeList(costList, incomeList) {
         return list;
     }else if(incomeList===null){
         costList.map(function (item, index, input) {
+            item.type="cost";
             input[index].money *= -1;
         });
         var list = costList;
@@ -176,6 +179,7 @@ function sortCostIncomeList(costList, incomeList) {
     }
     costList.map(function (item, index, input) {
         input[index].money *= -1;
+        item.type="cost";
     });
     var list = costList.concat(incomeList);
     list.sort(function (a, b) {
@@ -183,6 +187,7 @@ function sortCostIncomeList(costList, incomeList) {
     });
     list.map(function (item, index, input) {
         if(item.money>0){
+            item.type="income";
             item.money="+"+item.money;
         }
         item.createTime = self::formatTime(new Date(item.createTime * 1000));
@@ -205,6 +210,28 @@ function spiltDateTime(dateTime) {
     return dateTime.split(" ");
 }
 
+Date.prototype.format = function(format) {
+    var date = {
+        "M+": this.getMonth() + 1,
+        "d+": this.getDate(),
+        "h+": this.getHours(),
+        "m+": this.getMinutes(),
+        "s+": this.getSeconds(),
+        "q+": Math.floor((this.getMonth() + 3) / 3),
+        "S+": this.getMilliseconds()
+    };
+    if (/(y+)/i.test(format)) {
+        format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
+    }
+    for (var k in date) {
+        if (new RegExp("(" + k + ")").test(format)) {
+            format = format.replace(RegExp.$1, RegExp.$1.length == 1
+                ? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
+        }
+    }
+    return format;
+}
+
 
 module.exports = {
     formatTime,
@@ -220,5 +247,5 @@ module.exports = {
     isNum,
     sortCostIncomeList,
     addDayTimeStamp,
-    spiltDateTime
+    spiltDateTime,
 }

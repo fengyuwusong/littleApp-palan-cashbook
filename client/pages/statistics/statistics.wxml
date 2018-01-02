@@ -1,0 +1,21 @@
+<view class="container">
+    <canvas canvas-id="pieCanvas" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+</view>
+<view class="container">
+    <canvas canvas-id="ringCanvas" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+</view>
+<view class="container">
+    <canvas canvas-id="lineCanvas" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+</view>
+<view class="container">
+    <canvas canvas-id="lineCanvas2" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+</view>
+<view class="container">
+    <canvas canvas-id="columnCanvas" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+</view>
+<view class="container">
+    <canvas canvas-id="areaCanvas" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+</view>
+<view class="container">
+    <canvas canvas-id="radarCanvas" class="canvas" style="height:300px" bindtouchstart="touchHandler"></canvas>
+</view>

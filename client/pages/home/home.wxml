@@ -3,15 +3,15 @@
     <view class='top'>
         <view wx:if="{{!logged}}" class='top-left'>
             <image src='/images/tab/money.png'></image>
-            <text catchtap='login'>登录, 晚上好</text>
+            <text catchtap='login'>登录, {{headerTime}}</text>
         </view>
         <view wx:else class='top-left' catchtap='setting'>
             <image src='{{userInfo.avatarUrl}}'></image>
-            <text>{{userInfo.nickName}}, 晚上好</text>
+            <text>{{userInfo.nickName}}, {{headerTime}}</text>
         </view>
         <view class='top-right'>
-            <button>明细</button>
-            <button>统计</button>
+            <button catchtap="more">明细</button>
+            <!--<button>统计</button>-->
         </view>
     </view>
     <view class='show-pane'>
@@ -48,7 +48,7 @@
     <view class='recent-cost'>
         <view class='recent-top'>
             <text>最近收支明细</text>
-            <text class='more'>more>></text>
+            <text class='more' catchtap="more">more>></text>
         </view>
         <view class='henxian'></view>
         <block wx:for="{{costIncomeList}}" wx:for-item="list" wx:key="costIncomeList" wx:for-index="index">

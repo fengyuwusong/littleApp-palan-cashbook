@@ -1,7 +1,7 @@
 <template name="recentListTemplate">
     <view class='recent-list-contaner'>
         <view class='one-cost' catchtap="detail"
-              data-type="{{secondType?'cost':'income'}}"
+              data-type="{{type}}"
               data-index="{{index}}"
         >
             <view class='one-cost-top'>

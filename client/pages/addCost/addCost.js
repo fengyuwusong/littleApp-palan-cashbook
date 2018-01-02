@@ -80,7 +80,8 @@ Page({
             createTime: util.dateTimeToTimeStamp(this.data.date + " " + this.data.time + ":" + new Date().getSeconds()),
             type: this.data.costType[1][this.data.index[1]].id,
             uid: app.globalData.uid
-        }
+        };
+        console.log(this.data.date + " " + this.data.time + ":" + new Date().getSeconds());
         //判空 是否为数字
         if (util.isNotEmpty(cost.money, "金额") && util.isNum(cost.money, '金额')) {
             if (this.data.detailFlag) {

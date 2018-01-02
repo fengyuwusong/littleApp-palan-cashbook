@@ -1,6 +1,8 @@
 {
     "pages": [
         "pages/home/home",
+        "pages/statistics/statistics",
+        "pages/more/more",
         "pages/feedback/feedback",
         "pages/incomeType/incomeTypeAdd/incomeTypeAdd",
         "pages/costType/costTypeAdd/costTypeAdd",
@@ -10,8 +12,7 @@
         "pages/addIncome/addIncome",
         "pages/addCost/addCost",
         "pages/index/index",
-        "pages/addCgi/addCgi",
-        "pages/list/more"
+        "pages/addCgi/addCgi"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",
