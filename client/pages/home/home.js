@@ -217,32 +217,32 @@ Page({
 
     //点击对已添加支出收入进行编辑删除
     detail:function (event) {
-        if(event.currentTarget.dataset.type==="cost"){
+        if(event.currentTarget.dataset.type=="cost"){
             var cost=this.data.costIncomeList[event.currentTarget.dataset.index];
             var id=cost.id;
             var createTime=cost.createTime;
-            var firstType=cost.firstType.name;
+            var firstTypeId=cost.firstType.id;
             var mark=cost.mark;
             var money=cost.money;
             var necessary=cost.necessary;
-            var secondType=cost.secondType.name;
+            var secondTypeId=cost.secondType.id;
             wx.navigateTo({
                 url: '../addCost/addCost?id='+id
-                +"&createTime="+createTime+"&firstType="+firstType
+                +"&createTime="+createTime+"&firstTypeId="+firstTypeId
                 +"&mark="+mark+"&money="+money+"&necessary="+necessary
-                +"&secondType="+secondType
+                +"&secondTypeId="+secondTypeId
             })
         }
-        else if(event.currentTarget.dataset.type==="income"){
+        else if(event.currentTarget.dataset.type=="income"){
             var income=this.data.costIncomeList[event.currentTarget.dataset.index];
             var id=income.id;
             var createTime=income.createTime;
             var mark=income.mark;
             var money=income.money;
-            var incomeType=income.incomeType.name;
+            var incomeTypeName=income.incomeType.name;
             wx.navigateTo({
                 url: '../addIncome/addIncome?id='+id
-                +"&createTime="+createTime+"&incomeType="+incomeType
+                +"&createTime="+createTime+"&incomeTypeName="+incomeTypeName
                 +"&mark="+mark+"&money="+money
             })
         }

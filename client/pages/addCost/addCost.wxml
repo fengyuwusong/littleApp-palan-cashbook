@@ -22,11 +22,8 @@
             <!--分类  -->
             <view class='type-view'>
                 <picker mode="multiSelector" bindchange="typePickerChange" bindcolumnchange="typePickerColumnChange" value="{{index}}" range="{{costType}}" range-key="{{'name'}}">
-                    <view class="picker" wx:if="{{!detailFlag}}">
+                    <view class="picker">
                         <text>{{costType[0][index[0]].name}}</text> <text>{{costType[1][index[1]].name}}</text>
-                    </view>
-                    <view class="picker" wx:else>
-                        <text>{{firstType}}</text> <text>{{secondType}}</text>
                     </view>
                 </picker>
             </view>
@@ -44,7 +41,7 @@
             <button wx:if="{{!detailFlag}}" formType="submit">保存支出</button>
             <view class="else-button" wx:else>
                 <button formType="submit">修改支出</button>
-                <button catchtap="delete" class="delete-button">删除支出</button>
+                <button catchtap="deleteCost" class="delete-button">删除支出</button>
             </view>
         </view>
     </form>

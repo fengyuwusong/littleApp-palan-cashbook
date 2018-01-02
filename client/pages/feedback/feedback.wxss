@@ -22,6 +22,7 @@ textarea{
     border-radius: 20rpx;
     padding:20rpx;
     font-size: 28rpx;
+    height: 300rpx;
 }
 
 button{

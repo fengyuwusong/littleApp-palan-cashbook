@@ -1,6 +1,9 @@
 //接口请求地址
 var base = 'https://www.fengyuwusong.cn/cashPlayBook';
 // var base = 'http://localhost';
+// var base = 'http://192.168.43.156';
+
+
 var requestUrl = {
     base,
     /**
@@ -112,7 +115,7 @@ var requestUrl = {
      * delete
      * 路径参数     +costId
      */
-    deleteCost: '/cost/',
+    deleteCost: `${base}/cost/`,
     /**
      * 查看一笔消费详情
      * get

@@ -19,10 +19,12 @@ Page({
     //提交
     formSubmit: function (e) {
         util.showBusy("提交中~");
-        var content = e.detail.value.content;
-        var uid = app.globalData.uid;
-        util.request(requestUrl.feedback + uid + "/" + content, "get", {}, "json", function (res) {
-            if (res.data.code == 200) {
+        var data={
+            content : e.detail.value.content.toString(),
+            uid : app.globalData.uid
+        };
+        util.request(requestUrl.feedback, "get", data, "json", function (res) {
+            if (res.data.code === 200) {
                 wx.hideToast();
                 wx.showModal({
                     title: "提交成功~",
@@ -35,9 +37,9 @@ Page({
                         })
                     }
                 })
-
             } else {
-                util.showModel("错误~", res.data.message);
+                console.log(res);
+                util.showModel("错误~", res.data);
             }
         }, null, null);
     },

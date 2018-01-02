@@ -2,9 +2,9 @@
     <view class='background-top'></view>
     <form bindsubmit="formSubmit" bindreset="formReset">
         <view class='main'>
-            <!-- <form> -->
             <!--金额  -->
-            <input placeholder='0.0' type="digit" class='money' name="money"/>
+            <input placeholder='0.0' wx:if="{{!detailFlag}}" type="digit" class='money' name="money"/>
+            <input value="{{money}}" wx:else type="digit" class='money' name="money"/>
             <!-- 日期选择器 -->
             <view class='time-view'>
                 <picker mode="date" bindchange="bindDateChange">
@@ -27,10 +27,14 @@
             </view>
 
             <!--备注  -->
-            <input class="mark" placeholder='备注（可选）' name="mark"/>
+            <input class="mark" wx:if="{{!detailFlag}}" placeholder='备注（可选）' name="mark"/>
+            <input class="mark" wx:else value="{{mark}}" name="mark"/>
             <!--提交  -->
-            <button formType="submit">保存支出</button>
-            <!-- </form> -->
+            <button wx:if="{{!detailFlag}}" formType="submit">保存支出</button>
+            <view class="else-button" wx:else>
+                <button formType="submit">修改支出</button>
+                <button catchtap="deleteIncome" class="delete-button">删除支出</button>
+            </view>
         </view>
     </form>
 </view>

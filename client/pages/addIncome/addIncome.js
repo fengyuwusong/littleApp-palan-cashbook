@@ -36,6 +36,16 @@ Page({
             that.setData({
                 incomeType: res.data.data
             });
+            if (that.data.detailFlag) {
+                res.data.data.map(function (item, index, input) {
+                    if(item.name==that.data.incomeTypeName){
+                        that.setData({
+                            index:index
+                        });
+                        return;
+                    }
+                });
+            }
             wx.hideToast();
         }, null, null);
     },
@@ -57,9 +67,16 @@ Page({
             type: this.data.incomeType[this.data.index].id
         };
         if (util.isNotEmpty(income.money, "金额") && util.isNum(income.money, "金额")) {
-            this.addIncome(income);
+            if (this.data.detailFlag) {
+                income.id = this.data.id;
+                this.updateIncome(income);
+            } else {
+                this.addIncome(income);
+            }
         }
     },
+
+
 
     //添加一笔收入
     addIncome: function (income) {
@@ -77,12 +94,69 @@ Page({
         }, null, null);
     },
 
+    //修改一笔收入
+    updateIncome:function (income) {
+        util.showBusy("修改中~")
+        util.request(requestUrl.updateIncome, "put", income, "json", function (res) {
+            if (res.data.code == 200) {
+                util.showSuccess("成功~");
+                //返回上一页面
+                wx.navigateBack({
+                    delta: 1
+                })
+            } else {
+                util.showModel("错误", res.data.message);
+            }
+        }, null, null);
+    },
+
+    //删除一笔收入
+    deleteIncome:function () {
+        util.showBusy("删除中~");
+        util.request(requestUrl.deleteIncome + this.data.id, 'delete', {}, 'json', function (res) {
+            if (res.data.code == 200) {
+                util.showSuccess("成功~");
+                //返回上一页面
+                wx.navigateBack({
+                    delta: 1
+                })
+            } else {
+                util.showModel("错误", res.data.message);
+            }
+        })
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        if (options.id !== undefined) {
+            var dateTime = util.spiltDateTime(options.createTime);
+            this.setData({
+                detailFlag: true,
+                date: dateTime[0],
+                time: dateTime[1],
+                necessary: options.necessary,
+                mark: options.mark,
+                money: options.money.substring(1), //截取去掉+
+                id: options.id,
+                incomeTypeName:options.incomeTypeName
+            });
+            if(app.globalData.incomeType !== undefined){
+                var appData=app.globalData.incomeType;
+                var that=this;
+                if (this.data.detailFlag) {
+                    appData.map(function (item, index, input) {
+                        if(item.name==that.data.incomeTypeName){
+                            that.setData({
+                                index:index
+                            });
+                            return;
+                        }
+                    });
+                }
+            }
+        }
     },
 
     /**

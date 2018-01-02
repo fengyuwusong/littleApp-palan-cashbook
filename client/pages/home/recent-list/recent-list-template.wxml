@@ -7,7 +7,7 @@
             <view class='one-cost-top'>
                 <view wx:if="{{secondType}}">
                     <text>{{firstType.name}}-{{secondType.name}}</text>
-                    <text class='baoxiao-text'>{{necessary?"必要":"不必要"}}</text>
+                    <text class='baoxiao-text' wx:if="{{!necessary}}">不必要</text>
                 </view>
                 <view wx:else>
                     <text>{{incomeType.name}}</text>

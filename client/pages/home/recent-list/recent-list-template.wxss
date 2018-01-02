@@ -12,13 +12,14 @@
     font-size: 25rpx;
     border-radius: 10rpx;
     margin-left: 10rpx;
-    background-color: #cad1d7;
+    background-color: #333333;
     color: #fff;
     display: inline-block;
     width: 80rpx;
     height: 38rpx;
     text-align: center;
     line-height: 38rpx;
+    margin-bottom:-15rpx;
 }
 
 .one-cost-top .new-text {
